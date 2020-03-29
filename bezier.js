@@ -28,8 +28,8 @@ function draw() {
   vertex(pts[0].x, pts[0].y);
 
   bezierVertex(
-         pts[1].x, pts[1].y,
-         pts[2].x, pts[2].y,
+         Math.round(pts[1].x,1), Math.round(pts[1].y, 1),
+         Math.round(pts[2].x, 1), Math.round(pts[2].y, 1),
          pts[3].x, pts[3].y);
 
   if (checkbox.checked()) {

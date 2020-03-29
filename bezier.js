@@ -90,13 +90,13 @@ function draw() {
   text("x: " + String(pts[0].x), pts[0].x, pts[0].y);
   text("y: " + String(pts[0].y), pts[0].x, pts[0].y+10);
   for (let i = 1; i < pts.length; i++) { 
-    text("x: " + String(Math.round(pts[i].x-pts[0].x), 1), pts[i].x, pts[i].y);
-    text("y: " + String(Math.round(pts[i].y-pts[0].y), 1), pts[i].x, pts[i].y+10);
+    text("x: " + String(Math.round(pts[i].x-pts[0].x, 1)), pts[i].x, pts[i].y);
+    text("y: " + String(Math.round(pts[i].y-pts[0].y, 1)), pts[i].x, pts[i].y+10);
   }
   if (checkbox.checked()) {
       for (let i = 0; i < pts_mirror.length-1; i++) {
     text("x: " + String(pts_mirror[i].x-pts[0].x), pts_mirror[i].x, pts_mirror[i].y);
-    text("y: " + String(Math.round(pts_mirror[i].y-pts[0].y), 1), pts_mirror[i].x, pts_mirror[i].y+10);
+    text("y: " + String(Math.round(pts_mirror[i].y-pts[0].y, 1)), pts_mirror[i].x, pts_mirror[i].y+10);
   }
   }
 }

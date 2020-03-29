@@ -1,10 +1,14 @@
 // bezier curve demo. drag the anchor/control points.
-const bod = document.getElementsByTagName("body")[0];
-let desc = document.createElement("div");
+const main = document.getElementById("main");
+const desc = document.getElementById("desc");
+let code_desc = document.createElement("p");
 let pts = [];
 
-function setup() {
-  createCanvas(800, 500);
+function setup (){
+  let canvas = createCanvas(800, 500);
+
+  canvas.parent('sketch-holder');
+
   pts = [
     createVector(50, 200),
     createVector(100, 300),
@@ -43,11 +47,6 @@ function draw() {
 
   }
   endShape();
-  // bezier(pts[0].x, pts[0].y,
-  //        pts[1].x, pts[1].y,
-  //        pts[2].x, pts[2].y,
-  //        pts[3].x, pts[3].y);
-
 
   noStroke();
   fill(255);
@@ -77,16 +76,7 @@ function draw() {
   fill(0);
   textSize(12);
   text("bezier curve demo / drag the handles to change the curve", 4, height-4);
-  // text("Code to produce bezier: \n" +
-  //   "let x = "+pts[0].x+" let y = "+pts[0].y+"\n"+
-  //   "beginShape();\n" +
-  //   "vertex(x,y);\n"+
-  //   "bezierVertex("+"x + " + (pts[1].x-pts[0].x)+", y + "+(pts[1].y-pts[0].y)+",\n"+
-  //   "x + " + (pts[2].x-pts[0].x) + ", y + "+(pts[2].y-pts[0].y)+",\n"+
-  //   "x + " + (pts[3].x-pts[0].x) + ", y + "+(pts[3].y-pts[0].y)+")\n"+ ((checkbox.checked() == true) ? ("bezierVertex(x + "+(pts[2].x-pts[0].x)+", y - "+ (pts[2].y-pts[0].y)+",\n"+
-  //   "x + " + (pts[1].x-pts[0].x)+", y - "+ (pts[1].y-pts[0].y)+",\n"+
-  //   "x, y);\n" +"endShape();") : "endShape();"), 500, 300);
-  desc.textContent = String("Code to produce bezier: \n" +
+  code_desc.textContent = String("Code to produce bezier: \n" +
     "let x = "+pts[0].x+";\n let y = "+pts[0].y+";\n"+
     "beginShape();\n" +
     "vertex(x,y);\n"+
@@ -111,4 +101,14 @@ function draw() {
   }
 }
 
-bod.appendChild(desc);
+let intro = document.createElement("p");
+intro.textContent = "Ever wanted to make a bezier curve in processing but not know what coordinates to use to get the curve you want?\n" +
+"Well here is my solution: make the curve by moving the control points, then this tool prints the code to produce the bezier curve you just made,\n"+
+"The code is designed to give a Bezier relative to a desired start point, so you can position instances of the Bezier curve dynamically.\n" +
+"This was inspired by me trying to make leaves for https://mogs-git.github.io//perlin_vine/"
+desc.appendChild(intro);
+desc.appendChild(code_desc);
+
+let acknowledgement = document.createElement("p");
+acknowledgement.textContent = "This tool is largely based on a p5.js sketch by Allison Parrish at https://www.decontextualize.com/, which can be found here https://editor.p5js.org/allison.parrish/sketches/H1QQ3Nt67";
+desc.appendChild(acknowledgement);

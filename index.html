@@ -4,14 +4,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
     <style>
-      html, body {
+    html, body {
       margin: 0;
       padding: 0;
       white-space: pre-line;
     }
+
+    #main {
+      display: flex;
+    }
+    #desc {
+      display:flex;
+      flex-direction: column;
+      margin: 15px;
+    }
+
     </style>
   </head>
   <body>
+
+    <div id="main">
+      <div id='sketch-holder'></div>
+      <div id='desc'></div>
+    </div>
     <script src="bezier.js"></script>
   </body>
 </html>

@@ -89,7 +89,7 @@ function draw() {
 
   text("x: " + String(pts[0].x), pts[0].x, pts[0].y);
   text("y: " + String(pts[0].y), pts[0].x, pts[0].y+10);
-  for (let i = 1; i < pts.length; i++) {
+  for (let i = 1; i < pts.length; i++) { 
     text("x: " + String(pts[i].x-pts[0].x), pts[i].x, pts[i].y);
     text("y: " + String(pts[i].y-pts[0].y), pts[i].x, pts[i].y+10);
   }

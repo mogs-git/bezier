@@ -80,9 +80,9 @@ function draw() {
     "let x = "+pts[0].x+";\n let y = "+pts[0].y+";\n"+
     "beginShape();\n" +
     "vertex(x,y);\n"+
-    "bezierVertex("+"x + " + (pts[1].x-pts[0].x)+", y + "+(pts[1].y-pts[0].y)+",\n"+
-    "x + " + (pts[2].x-pts[0].x) + ", y + "+(pts[2].y-pts[0].y)+",\n"+
-    "x + " + (pts[3].x-pts[0].x) + ", y + "+(pts[3].y-pts[0].y)+")\n"+ ((checkbox.checked() == true) ? ("bezierVertex(x + "+(pts[2].x-pts[0].x)+", y + (y - "+ Math.round((pts[2].y), 1) +"),\n"+
+    "bezierVertex("+"x + " + (pts[1].x-pts[0].x)+", y + "+Math.round((pts[1].y-pts[0].y),1)+",\n"+
+    "x + " + (pts[2].x-pts[0].x) + ", y + "+Math.round((pts[2].y-pts[0].y),1)+",\n"+
+    "x + " + (pts[3].x-pts[0].x) + ", y + "+Math.round((pts[3].y-pts[0].y),1)+")\n"+ ((checkbox.checked() == true) ? ("bezierVertex(x + "+(pts[2].x-pts[0].x)+", y + (y - "+ Math.round((pts[2].y), 1) +"),\n"+
     "x + " + (pts[1].x-pts[0].x)+", y + (y - "+ Math.round((pts[1].y), 1)+"),\n"+
     "x, y);\n" +"endShape();") : "endShape();"));
 

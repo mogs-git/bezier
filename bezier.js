@@ -82,21 +82,21 @@ function draw() {
     "vertex(x,y);\n"+
     "bezierVertex("+"x + " + (pts[1].x-pts[0].x)+", y + "+(pts[1].y-pts[0].y)+",\n"+
     "x + " + (pts[2].x-pts[0].x) + ", y + "+(pts[2].y-pts[0].y)+",\n"+
-    "x + " + (pts[3].x-pts[0].x) + ", y + "+(pts[3].y-pts[0].y)+")\n"+ ((checkbox.checked() == true) ? ("bezierVertex(x + "+(pts[2].x-pts[0].x)+", y + (y - "+ (pts[2].y) +"),\n"+
-    "x + " + (pts[1].x-pts[0].x)+", y + (y - "+ (pts[1].y)+"),\n"+
+    "x + " + (pts[3].x-pts[0].x) + ", y + "+(pts[3].y-pts[0].y)+")\n"+ ((checkbox.checked() == true) ? ("bezierVertex(x + "+(pts[2].x-pts[0].x)+", y + (y - "+ Math.round((pts[2].y), 1) +"),\n"+
+    "x + " + (pts[1].x-pts[0].x)+", y + (y - "+ Math.round((pts[1].y), 1)+"),\n"+
     "x, y);\n" +"endShape();") : "endShape();"));
 
 
   text("x: " + String(pts[0].x), pts[0].x, pts[0].y);
   text("y: " + String(pts[0].y), pts[0].x, pts[0].y+10);
   for (let i = 1; i < pts.length; i++) { 
-    text("x: " + String(Math.round(pts[i].x-pts[0].x), 1) pts[i].x, pts[i].y);
-    text("y: " + String(pts[i].y-pts[0].y), pts[i].x, pts[i].y+10);
+    text("x: " + String(Math.round(pts[i].x-pts[0].x), 1), pts[i].x, pts[i].y);
+    text("y: " + String(Math.round(pts[i].y-pts[0].y), 1), pts[i].x, pts[i].y+10);
   }
   if (checkbox.checked()) {
       for (let i = 0; i < pts_mirror.length-1; i++) {
     text("x: " + String(pts_mirror[i].x-pts[0].x), pts_mirror[i].x, pts_mirror[i].y);
-    text("y: " + String(pts_mirror[i].y-pts[0].y), pts_mirror[i].x, pts_mirror[i].y+10);
+    text("y: " + String(Math.round(pts_mirror[i].y-pts[0].y), 1), pts_mirror[i].x, pts_mirror[i].y+10);
   }
   }
 }
